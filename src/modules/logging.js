@@ -22,9 +22,9 @@ const createLogger = (category, categoryLabel) => {
     transports: [
       new transports.Console({
         level: config.level,
-        format: combine.apply(null, formatters),
-      }),
-    ],
+        format: combine.apply(null, formatters)
+      })
+    ]
   });
 
   return container.get(category);
