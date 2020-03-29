@@ -1,5 +1,16 @@
-import { getLogger } from 'modules/logging';
+import { getStashes } from 'modules/atf';
+import { pickMatches } from 'modules/match';
+import { createPdf } from 'modules/pdf';
 
-const log = getLogger('app');
+const execute = async () => {
+  const stashes = await getStashes();
+  const matches = pickMatches(stashes);
 
-log.info('Hello World!');
+  for (const stash of stashes) {
+    const [, innerMatches] = matches.find(([user]) => user === stash.user);
+
+    await createPdf(stash, innerMatches, stashes);
+  }
+};
+
+execute();
