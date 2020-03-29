@@ -5,6 +5,10 @@ export const logging = {
   timestampFormat: process.env.BOT_LOG_TIME_FMT
 };
 
+export const users = {
+  userList: (process.env.BOT_USER_LIST || '').split(/,/)
+};
+
 export default {
   logging
 };
