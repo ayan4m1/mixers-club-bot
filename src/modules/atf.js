@@ -48,15 +48,16 @@ export const getStashes = async () => {
 
     if (stash.length) {
       log.info(`Got ${stash.length} flavors for ${user}`);
-      results.push({
-        user,
-        stash
-      });
     } else {
       log.info(`${user} has no flavors!`);
     }
+
+    results.push({
+      user,
+      stash
+    });
   }
 
-  log.info(`Fetched all stashes. ${results.length} users had a stash.`);
+  log.info(`Fetched ${results.length} stashes.`);
   return results;
 };
