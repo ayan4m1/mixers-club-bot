@@ -23,9 +23,8 @@ export const pickMatches = (stashes) => {
 
   for (const [user, matches] of edges) {
     matches.push(pickMatch(user, matches, edges));
-    matches.push(pickMatch(user, matches, edges));
 
-    log.info(`${user} was assigned ${matches[0]} and ${matches[1]}`);
+    log.info(`${user} was assigned ${matches[0]}`);
   }
 
   log.info('Finished assigning users.');
